@@ -1,8 +1,13 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    maven { url "https://jitpack.io" }
+    mavenCentral()
+}
+
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
         applicationId "com.skiel.easycooking"
@@ -24,4 +29,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.github.endisisto:android-volley:1.0.19'
+    compile 'com.github.endisisto:Android-Universal-Image-Loader:v1.9.5'
 }
