@@ -12,8 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.skiel.easycooking.R;
+import com.skiel.easycooking.models.Response;
+import com.skiel.easycooking.services.EasyCookingService;
+import com.skiel.easycooking.services.OnServiceFinish;
+
+import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,6 +49,14 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        EasyCookingService.getInstance().getRecipes("&q=chicken", this, new OnServiceFinish() {
+            @Override
+            public void onFinish(List<Objects> serviceResponseList) {
+                super.onFinish(serviceResponseList);
+                Toast.makeText(MainActivity.this, "finish", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

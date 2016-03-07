@@ -9,10 +9,10 @@ import com.skiel.easycooking.daos.RecipeDao;
  */
 public class EasyCookingService {
 
-    private EasyCookingService instance;
+    private static EasyCookingService instance;
     private RecipeDao recipeDao;
 
-    public EasyCookingService getInstance(){
+    public static  EasyCookingService getInstance(){
         if(instance==null){
             instance = new EasyCookingService();
         }
